@@ -68,7 +68,9 @@ $(function() {
 <div class="title">TikZiT Documentation </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This is the source code documentation for TikZiT. The global entry point for the TikZiT executable is in <a class="el" href="main_8cpp.html">main.cpp</a>, whereas the class <a class="el" href="class_tikzit.html">Tikzit</a> maintains the global application state. </p>
+<div class="textblock"><p>This is the source code documentation for TikZiT. The global entry point for the TikZiT executable is in <a class="el" href="main_8cpp.html">main.cpp</a>, whereas the class <a class="el" href="class_tikzit.html">Tikzit</a> maintains the global application state.</p>
+<p>The TikZ parser is implemented in flex/bison in the files <a class="el" href="tikzlexer_8l_source.html">tikzlexer.l</a> and <a class="el" href="tikzparser_8y_source.html">tikzparser.y</a>.</p>
+<p>Most of the interesting code for handling user input is in the class <a class="el" href="class_tikz_scene.html">TikzScene</a>. Anything that makes a change to the tikz file should be implemented as a QUndoCommand. Currently, these are all in <a class="el" href="undocommands_8h.html">undocommands.h</a>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

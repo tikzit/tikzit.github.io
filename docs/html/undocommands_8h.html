@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TikZiT: AddNodeCommand Class Reference</title>
+<title>TikZiT: src/gui/undocommands.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,44 +62,39 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_99d0482cf009f9d97a0877749b817f19.html">gui</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_add_node_command-members.html">List of all members</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">AddNodeCommand Class Reference</div>  </div>
+<div class="title">undocommands.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for AddNodeCommand:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_add_node_command.png" usemap="#AddNodeCommand_map" alt=""/>
-  <map id="AddNodeCommand_map" name="AddNodeCommand_map">
-</map>
- </div></div>
+<div class="textblock"><code>#include &quot;tikzscene.h&quot;</code><br />
+<code>#include &lt;QUndoCommand&gt;</code><br />
+</div>
+<p><a href="undocommands_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a4aec663cffea45fda8203ba2b140a38e"><td class="memItemLeft" align="right" valign="top"><a id="a4aec663cffea45fda8203ba2b140a38e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AddNodeCommand</b> (<a class="el" href="class_tikz_scene.html">TikzScene</a> *scene, <a class="el" href="class_node.html">Node</a> *node, QRectF newBounds)</td></tr>
-<tr class="separator:a4aec663cffea45fda8203ba2b140a38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0744b462156ad08d360309125eb4e98b"><td class="memItemLeft" align="right" valign="top"><a id="a0744b462156ad08d360309125eb4e98b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>undo</b> () override</td></tr>
-<tr class="separator:a0744b462156ad08d360309125eb4e98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0dbd8f5044608215c755dcced3add50"><td class="memItemLeft" align="right" valign="top"><a id="af0dbd8f5044608215c755dcced3add50"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>redo</b> () override</td></tr>
-<tr class="separator:af0dbd8f5044608215c755dcced3add50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_move_command.html">MoveCommand</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge_bend_command.html">EdgeBendCommand</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_delete_command.html">DeleteCommand</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_add_node_command.html">AddNodeCommand</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="undocommands_8h_source.html#l00069">69</a> of file <a class="el" href="undocommands_8h_source.html">undocommands.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/gui/<a class="el" href="undocommands_8h_source.html">undocommands.h</a></li>
-<li>src/gui/<a class="el" href="undocommands_8cpp_source.html">undocommands.cpp</a></li>
-</ul>
-</div><!-- contents -->
+<div class="textblock"><p>All changes to a <a class="el" href="class_tikz_document.html">TikzDocument</a> are done via subclasses of QUndoCommand. When a controller (e.g. <a class="el" href="class_tikz_scene.html">TikzScene</a>) gets input from the user to change the document, it will push one of these commands onto the <a class="el" href="class_tikz_document.html">TikzDocument</a>'s undo stack, which automatically calls the redo() method of the command. </p>
+
+<p class="definition">Definition in file <a class="el" href="undocommands_8h_source.html">undocommands.h</a>.</p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
