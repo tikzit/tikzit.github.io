@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "adegmnptuy",
   1: "adegmnpty",
   2: "u",
-  3: "mu",
+  3: "mtu",
   4: "y",
   5: "t"
 };
