@@ -1,42 +1,117 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>TikZiT</title>
-	<link rel="stylesheet" type="text/css" href="main.css" />
-</head>
+---
+layout: default
+title: Home
+---
 
-<body>
-	<img src="images/web_logo.png" class="heading" alt="TikZiT" />
-	
-	<div class="whiteblock"><nobr>
-		<a href="https://bintray.com/tikzit/tikzit/download_file?file_path=releases%2F1.1%2FTikZiT-osx.zip" title="Download a ZIP for macOS">
-			<img class="osimage" src="images/apple.png" alt="Apple" />
-		</a>
-		
-		<a href="linux/" title="View information about installing TikZiT on Linux">
-			<img class="osimage" style="margin-right:10px" src="images/linux.png" alt="Linux" />
-		</a>
-		
-		<a href="https://bintray.com/tikzit/tikzit/download_file?file_path=releases%2F0.9%2Ftikzit-0.9.exe" title="Download an executable for Windows">
-			<img class="osimage" src="images/windows.png" alt="Windows" />
-		</a>
-		
-		<a href="https://github.com/tikzit/tikzit/archive/master.zip" title="Download the source code">
-			<img class="osimage" src="images/source.png" alt="Source" />
-		</a>
-	</nobr></div>
-	
-	<p class="blurb">
-		TikZiT is a graphical tool for rapidly creating graphs and diagrams using PGF/TikZ. It was used, for example, to make all of the 2500+ diagrams in <a href="http://cambridge.org/pqp">this book</a>. Click one of the above icons to download. To comment or contribute, email me at <b>gmail.com</b> preceded by <b>aleks0</b> and an at-sign.
-	</p>
-	
-	<div class="links">
-	  <a href="manual.html">TikZiT Manual</a> |
-		<a href="https://github.com/tikzit/tikzit">Project Page</a> |
-		<a href="https://github.com/tikzit/tikzit/issues">Issue Tracker</a>
-	</div>
-	
-	<br />
-	<br />
-</body>
-</html>
+<div class="jumbotron">
+  <h1>TikZiT</h1>
+  <p>TikZiT is a super simple GUI editor for graphs and string diagrams. Its native file format is a subset of PGF/TikZ, which means TikZiT files can be included directly in papers typeset using <a href="https://www.latex-project.org/">LaTeX</a>. Pre-built versions are available for 64-bit systems running Windows, Linux, or macOS. Alternatively, you can build TikZiT from source (via GitHub).</p>
+  <p style="line-height: 2.5em">
+    <a href="#" class="btn btn-primary btn-lg" role="button">
+      <span class="glyphicon glyphicon-download-alt"></span> Windows (exe)</a>
+    <a href="#" class="btn btn-primary btn-lg" role="button">
+      <span class="glyphicon glyphicon-download-alt"></span> Linux (portable binary)</a>
+    <a href="#" class="btn btn-primary btn-lg" role="button">
+      <span class="glyphicon glyphicon-download-alt"></span> macOS (app)</a>
+    <a href="https://github.com/tikzit/tikzit" class="btn btn-lg btn-success" role="button">GitHub Project &raquo;</a>
+  </p>
+</div>
+
+<h1>Install</h1>
+
+<p><b>Windows:</b> Click 'Windows (exe)' above to download a <code>.zip</code> file and extract it to a convenient place (e.g. <code>C:\tikzit</code>). If you wish to associate <code>.tikz</code> files with TikZiT, run the included <code>.reg</code> file (optional). Note you may need to edit the <code>.reg</code> file if you place TikZiT in a different location.</p>
+
+<p><b>Linux:</b> Click 'Linux (portable binary)' above to download a <code>.tar.gz</code> and extract it to a convient place (e.g. <code>~/tikzit</code>). You may then wish to add <code>~/tikzit/bin</code> to your PATH.</p>
+
+<p><b>macOS:</b> Click 'macOS (app)' above to download a <code>.zip</code> file. Extract this file and copy <code>tikzit.app</code> to your Applications folder. Depending on your system settings, the first time you run TikZiT, you may need to right-click the <code>.app</code> file and select <code>Open</code> from the menu to get the option to run it. After this, you can run TikZiT like a normal application.</p>
+
+
+<h1>Quickstart</h1>
+
+<p>While TikZiT is easy to use, a few things might not be obvious the first time you run the program. This guide should get you going as quickly as possible.</p>
+
+<p>This tutorial will cover basic editing all the way up to building a LaTeX paper with TikZiT figures in it. Create a new, empty folder somewhere on your computer (which I will refer to as <code>tikzpaper</code> throughout this tutorial). Download <a href="tikzit.sty">tikzit.sty</a> and place it in the folder. Also, create a new sub-directory called <code>figures</code>, which we will use later.</p>
+
+<h2>Basic node and edge editing</h2>
+
+<p>When you open TikZiT for the first time, you will see something that looks like this:</p>
+
+<img class="screenshot" src="images/screenshots/fresh.png" />
+
+<p>The window is divided into two parts: the main part is the <b>graph editor</b> and the part along the side is the <b>style palette</b>. For editing graphs, there are 3 tools: the <b>select</b> tool, the add <b>node</b> tool, and the add <b>edge</b> tool. These can be selected quickly by pressing <code>s</code>, <code>n</code>, or <code>e</code> while the graph editor is in focus.</p>
+
+<p>Pick the <b>node</b> tool and click on the graph a few times to add some nodes. You will notice these appear in TikZiT as dashed circles with a small dot in the middle. These are called <b>invisible nodes</b>. These will not appear in the actual typeset output. However, they can be labelled with pieces of LaTeX code (see below), which will appear in your figure, or used to attach edges. To add edges, select the <b>edge</b> tool and click and drag from one node to another.</p>
+
+<img class="screenshot" src="images/screenshots/add-edge.png" />
+
+<p>Pick the <b>select</b> tool again. You can select individual nodes or edges by clicking on them. You can select multiple nodes by dragging a box around the, and you can select multiple nodes or edges by clicking while holding down the <code>ctrl</code> key. (<b>For macOS users:</b> note the <code>ctrl</code> key in these instructions should always be substituted for the <code>command</code> key, as usual.)</p>
+
+<p>Selected nodes can be moved by dragging the mouse, or by pressing <code>ctrl + arrow keys</code>. Nodes are locked on a grid, so they normally only move in increments of 0.25 in TikZ coordinates. However, they can be "nudged" by increments of 0.025 by pressing <code>ctrl + shift + arrow keys</code>. This is convenient e.g. for centering nodes between others (5 nudges = 1/2 normal grid cell).</p>
+
+<p>Double-clicking a node gives the ability to set a label, which can contain LaTeX code:</p>
+
+<img class="screenshot" src="images/screenshots/node-label.png" />
+
+<p>Clicking on an edge reveals extra controls for bending the edge. There are two kinds of bend-modes in TikZiT, the <i>basic bend</i> mode (blue controls). Dragging either of the control points will cause the edge to bend to the left or the right:</p>
+
+<img class="screenshot" src="images/screenshots/basic-bend.png" />
+
+<p>Double-clicking the edge will change it to <i>bezier bend</i> mode (green controls). Now, each of the control points can be dragged independently:</p>
+
+<img class="screenshot" src="images/screenshots/bezier-bend.png" />
+
+
+<h2>Styles</h2>
+
+<p>Before we can create non-invisible nodes, we will need some styles. In the style palette, click the <img class="toolicon" src="images/document-new.png" /> button, navigate to the <code>tikzpaper</code> folder, and give the style file a name. I'll use <code>sample.tikzstyles</code>. Now, we can edit the style file by clicking <img class="toolicon" src="images/text-x-generic_with_pencil.png" />.</p>
+
+<p>Click the "+" under the list of node styles to add a new node style, and call it <code>red dot</code>. Set the fill color to red, the draw color to black, and the shape to "circle". Then, click "+" again to add a new style called <code>green dot</code>. Set the fill color to green, the draw color to black, and again the shape to "circle".</p>
+
+<img class="screenshot" src="images/screenshots/node-styles.png" />
+
+<p>You may also wish to add some edge styles by clicking the "+" under the list of edge styles. If you have many styles, you can also organise them into categories by setting the "Category" field. When you are done adding styles, click "Save and Close" to return to the graph editor.</p>
+
+<p>Now, you will see your new styles in the style palette on the right. To apply a style to a node (or edge), select the node (or edge) it and double-click on the style. If you create new nodes and edges with a certain style selected, they will automatically get that style. To turn nodes these back into invisible nodes, select them and double-click on the "none" style.</p>
+
+<img class="screenshot" src="images/screenshots/fig.png" />
+
+<p>The above figure was created with 5 invisible nodes (2 inputs, 2 outputs, and 1 for the equals sign), 2 "red dot" nodes, and 2 "green dot" nodes. We can now save it and include it directly in a paper. Click <code>File > Save As...</code>, navigate to <code>tikzpaper/figures</code>, and save this as <code>fig1.tikz</code>.</p>
+
+<p>In your favourite text editor, create a new file in the <code>tikzpaper</code> called <code>paper.tex</code>. Open it, and add the following tex:</p>
+
+{% highlight latex %}
+\documentclass{article}
+\usepackage{tikzit}
+\input{sample.tikzstyles}
+
+\begin{document}
+
+A tikz picture as an equation:
+\begin{equation}
+  \tikzfig{fig1}
+\end{equation}
+
+A centered tikz picture:
+\ctikzfig{fig1}
+
+\end{document}
+{% endhighlight %}
+
+<p><code>tikzfig.sty</code> provides two macros for including <code>.tikz</code> files: <code>\tikzfig</code> and <code>\ctikzfig</code>. They both take as an argument the name of a figure (without the <code>.tikz</code> extension), and will search for that figure either in the same directory or in a subdirectly called <code>figures</code> if it exists. Note that <code>\ctikzfig{FIG}</code> is just a shorthand for:</p>
+
+{% highlight latex %}
+\begin{center}
+  \tikzfig{FIG}
+\end{center}
+{% endhighlight %}
+
+<p>Use <code>pdflatex</code> to build <code>paper.tex</code>, and you should get something that looks like this:</p>
+
+<img class="screenshot" src="images/screenshots/pdf.png" />
+
+<p>There are quite a few tricks to getting things to look nice in TikZiT, usually using a combination of PGF/TikZ hackery and invisible nodes. One thing that is useful for this is editing properties of a node or an edge. With a node/edge selected, press <code>ctrl + j</code> to jump to that line of the TikZ source.</p>
+
+<img class="screenshot" src="images/screenshots/tikz-source.png" />
+
+<p>You can edit this by hand, and press <code>ctrl + t</code> to update the graph editor with the new TikZ code. You need to be a bit careful, since TikZiT only understands a subset of TikZ, but adding and removing TikZ properties on nodes or edges works just fine.</p>
+
