@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" href="favicon.ico"/>
 
-    <title>TikZiT :: {{ page.title }}</title>
+    <title>TikZiT{% if page.title != 'Home'%} :: {{ page.title }}{% endif %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
