@@ -7,11 +7,11 @@ title: Home
   <h1>TikZiT</h1>
   <p>TikZiT is a super simple GUI editor for graphs and string diagrams. Its native file format is a subset of PGF/TikZ, which means TikZiT files can be included directly in papers typeset using <a href="https://www.latex-project.org/">LaTeX</a>. Pre-built versions are available for 64-bit systems running Windows, Linux, or macOS. Alternatively, you can build TikZiT from source (via GitHub).</p>
   <p style="line-height: 2.5em">
-    <a href="#" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.0-rc2/tikzit-win.zip" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> Windows (exe)</a>
-    <a href="#" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.0-rc2/tikzit-linux.tar.gz" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> Linux (portable binary)</a>
-    <a href="#" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.0-rc2/tikzit-osx.zip" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> macOS (app)</a>
     <a href="https://github.com/tikzit/tikzit" class="btn btn-lg btn-success" role="button">GitHub Project &raquo;</a>
   </p>
@@ -19,11 +19,11 @@ title: Home
 
 <h1>Install</h1>
 
-<p><b>Windows:</b> Click 'Windows (exe)' above to download a <code>.zip</code> file and extract it to a convenient place (e.g. <code>C:\tikzit</code>). If you wish to associate <code>.tikz</code> files with TikZiT, run the included <code>.reg</code> file (optional). Note you may need to edit the <code>.reg</code> file if you place TikZiT in a different location.</p>
+<p><b>Windows:</b> Click 'Windows (exe)' above to download a zip file and extract it to a convenient place (e.g. <code>C:\tikzit</code>). If you wish to associate <code>.tikz</code> files with TikZiT, run the included <code>.reg</code> file (optional). Note you may need to edit the <code>.reg</code> file with a text editor if you place TikZiT in a different location.</p>
 
-<p><b>Linux:</b> Click 'Linux (portable binary)' above to download a <code>.tar.gz</code> and extract it to a convient place (e.g. <code>~/tikzit</code>). You may then wish to add <code>~/tikzit/bin</code> to your PATH.</p>
+<p><b>Linux:</b> Click 'Linux (portable binary)' above to download a tarball and extract it to a convient place (e.g. your home directory). Then, launch the application with <code>~/tikzit/bin/tikzit</code>. You may wish to add <code>~/tikzit/bin</code> to your PATH and install the application launcher by running the following command: <code>mkdir -p ~/.local && cp -r ~/tikzit/share ~/.local/</code>.</p>
 
-<p><b>macOS:</b> Click 'macOS (app)' above to download a <code>.zip</code> file. Extract this file and copy <code>tikzit.app</code> to your Applications folder. Depending on your system settings, the first time you run TikZiT, you may need to right-click the <code>.app</code> file and select <code>Open</code> from the menu to get the option to run it. After this, you can run TikZiT like a normal application.</p>
+<p><b>macOS:</b> Click 'macOS (app)' above to download a zip file. Extract this file and copy <code>tikzit.app</code> to your Applications folder. Depending on your system settings, the first time you run TikZiT, you may need to right-click the <code>.app</code> file and select <code>Open</code> from the menu to get the option to run it. After this, you can run TikZiT like a normal application.</p>
 
 
 <h1>Quickstart</h1>
@@ -63,11 +63,19 @@ title: Home
 
 <h2>Styles</h2>
 
-<p>Before we can create non-invisible nodes, we will need some styles. In the style palette, click the <img class="toolicon" src="images/document-new.png" /> button, navigate to the <code>tikzpaper</code> folder, and give the style file a name. I'll use <code>sample.tikzstyles</code>. Now, we can edit the style file by clicking <img class="toolicon" src="images/text-x-generic_with_pencil.png" />.</p>
+<p>Before we can create non-invisible nodes, we will need some styles. To set up styles, we will first create a new <b>style file</b>. In the style palette, click the <img class="toolicon" src="images/document-new.png" /> button, go to the <code>tikzpaper</code> folder, and give the new style file a name, e.g. <code>sample.tikzstyles</code>. Now, we can edit the style file by clicking <img class="toolicon" src="images/text-x-generic_with_pencil.png" />. This will open the style editor:</p>
 
-<p>Click the "+" under the list of node styles to add a new node style, and call it <code>red dot</code>. Set the fill color to red, the draw color to black, and the shape to "circle". Then, click "+" again to add a new style called <code>green dot</code>. Set the fill color to green, the draw color to black, and again the shape to "circle".</p>
+<img class="screenshot" src="images/screenshots/nostyles.png" />
+
+
+
+<p>On the left side of the window, there is a list of node styles, followed by a list of edge styles. Currently, both lists contain only a single style, called "none". Click the "+" under the list of node styles to add a new node style, and call it <code>red dot</code>. Set the fill color to red, the draw color to black, and the shape to "circle". Then, click "+" again to add a new style called <code>green dot</code>. Set the fill color to green, the draw color to black, and again the shape to "circle".</p>
 
 <img class="screenshot" src="images/screenshots/node-styles.png" />
+
+<div class="callout callout-info">
+<p><b>Note:</b> You can optionally set "in TikZiT" versions of the "draw", "fill", and "shape" properties. This will make nodes or edges look different in TikZiT, but have no effect on how they are typeset. This is useful for visually distinguishing similar styles.</p>
+</div>
 
 <p>You may also wish to add some edge styles by clicking the "+" under the list of edge styles. If you have many styles, you can also organise them into categories by setting the "Category" field. When you are done adding styles, click "Save and Close" to return to the graph editor.</p>
 
@@ -109,9 +117,124 @@ A centered tikz picture:
 
 <img class="screenshot" src="images/screenshots/pdf.png" />
 
-<p>There are quite a few tricks to getting things to look nice in TikZiT, usually using a combination of PGF/TikZ hackery and invisible nodes. One thing that is useful for this is editing properties of a node or an edge. With a node/edge selected, press <code>ctrl + j</code> to jump to that line of the TikZ source.</p>
+<div class="callout callout-info">
+  <p><b>Note:</b> TikZiT and LaTex don't always agree on how named colours should be drawn. This is a <a href="https://github.com/tikzit/tikzit/issues/19">known issue</a>, which will get fixed at some point.</p>
+</div>
+
+
+
+<h1>Tips and Tricks</h1>
+
+<p>There are quite a few tricks to getting things to look nice in TikZiT, usually using a combination of PGF/TikZ hackery and invisible nodes. Here are a few other quick tips:</p>
+
+<ul>
+  <li>To get dashed edges, add the atom "dashed" to an edge style. That is, select an edge style in the style editor, click "+a" under properties and change the text "new atom" to "dashed".</li>
+  <li>For very large or unusual shapes, sometimes it is easier to just draw the shape with invisible nodes and bezier edges.</li>
+  <li>TikZiT style files can be edited in a text editor. The format is very simple: just a list of commands of the form <code>\tikzstyle{NAME}=[PROPERTIES]</code> (see below). This is convenient for bulk editing or merging sets of styles. After you edit a style file, click <img class="toolicon" src="images/refresh.png" /> in the style palette to refresh the styles.</li>
+</ul>
+
+
+<h3>Editing TikZ source (e.g. node and edge properties)</h3>
+
+
+<p>With a node/edge selected, press <code>ctrl + j</code> to jump to that line of the TikZ source.</p>
 
 <img class="screenshot" src="images/screenshots/tikz-source.png" />
 
-<p>You can edit this by hand, and press <code>ctrl + t</code> to update the graph editor with the new TikZ code. You need to be a bit careful, since TikZiT only understands a subset of TikZ, but adding and removing TikZ properties on nodes or edges works just fine.</p>
+<p>You can edit this by hand, and press <code>ctrl + t</code> to update the graph editor with the new TikZ code. You need to be a bit careful, since TikZiT only understands a subset of TikZ, but adding and removing TikZ properties on nodes or edges works just fine. For this, the <a href="http://www.texample.net/media/pgf/builds/pgfmanualCVS2012-11-04.pdf">PGF/TikZ manual</a> is your friend.</p>
 
+
+<h3>Making boxes with multiple input/output wires</h3>
+
+<p>For string diagrams, flowcharts, etc. one often wants to create boxes with multiple input and output wires. While TikZ has a notion of "anchors" which support this, I find the following technique more convenient.</p>
+
+<p>TikZiT always draws nodes on top of edges, so to draw boxes with multiple inputs and outputs, first create one or more node styles for boxes. To get large boxes, click the "+" button under the property list and set the <code>minimum width</code> and <code>minimum height</code> properties. (Double-click a property or its value to change it.)</p>
+
+<p>For example: a medium-sized box (2-3 inputs and outputs), drawn horizontally, looks pretty good with <code>minimum width</code> set to <code>0.75cm</code> and <code>minimum height</code> set to <code>1cm</code>.</p>
+
+<img class="screenshot" src="images/screenshots/box.png" />
+
+<p>Now, add nodes with the <code>medium box</code> style where you wish to put boxes. For example, here are two such boxes, labeled <code>$f$</code> and <code>$g$</code>:</p>
+
+<img class="screenshot" src="images/screenshots/nowires.png" />
+
+<p>Then, create invisible nodes for inputs and outputs and draw edges to wire them together, getting a figure that looks like this:</p>
+
+<img class="screenshot" src="images/screenshots/wires.png" />
+
+<p>The final typeset figure will then come out like this:</p>
+
+<img class="screenshot" src="images/screenshots/typeset-boxes.png" />
+
+<p>While it might seem a bit awkward to create styles for every possible size, in practice this isn't too bad, for 2 reasons:</p>
+
+<ol>
+  <li>If you need a custom size as a one-off, you can use the <code>ctrl + j</code> trick from before to set the property on a single node.</li>
+  <li>Having only a few sizes to choose from (e.g. <code>small box</code>, <code>medium box</code>, <code>large box</code>) imposes some discipline on how you make your figures, and creates more consistent-looking papers overall. (This made a big difference <a href="http://cambridge.org/pqp">here</a>!)</li>
+</ol>
+
+<p>Also, suppose later on we come to our senses and decide to draw figures from bottom-to-top rather than left-to-right, we can swap the values of <code>minimum width</code> and <code>minimum height</code> in the style editor. Then, with our figure open, hit <code>ctrl + a</code> to select everything and <code>alt + shift + left</code> to rotate counter-clockwise. Then we get this:</p>
+
+<img class="screenshot" src="images/screenshots/boxfig-ccw.png" />
+
+<p>which typesets as:</p>
+
+<img class="screenshot" src="images/screenshots/typeset-boxes2.png" />
+
+
+<h1>File Formats</h1>
+
+<p>TikZiT's <code>.tikz</code> and <code>.tikzstyle</code> file formats are both subsets of PGF/TikZ's TeX-based format. TikZ style files have a very simple format. They are just a list of <code>\tikzstyle</code> commands. Here is the full grammar:</p>
+
+{% highlight xml %}
+
+<tikzstyles>   ::= ("\tikzstyle" DELIMITED_STRING "=" "[" <properties> "]")*
+
+<properties>   ::= "[" <property> ("," <property>)* "]"
+
+<property>     ::= <value> "=" <value> | <value>
+
+<value>        ::= SIMPLE_STRING | DELIMITED_STRING
+
+{% endhighlight %}
+
+<p>Where <code>SIMPLE_STRING</code> means a string consisting of letters, numbers, and whitespace and <code>DELIMITED_STRING</code> means a string inside of curly braces. The latter can contain nested curly braces, provided they occur in matched pairs.</p>
+
+
+<p>TikZ figure files consist of a <code>{tikzpicture}</code> environment, in which there is a list of <code>\node</code> commands, followed by a list of <code>\edge</code> commands. Nodes and edges, as well as the figure as a whole can have properties. Here is the full grammar:</p>
+
+{% highlight xml %}
+<tikzpicture>  ::= "\begin{tikzpicture}" <properties>?
+                   <expression>*
+                   "\end{tikzpicture}"
+
+<expression>   ::= <ignore> | <node> | <edge> | <boundingbox>
+
+<ignore>       ::= "\begin{pgfonlayer}" DELIMITED_STRING |
+                    "\end{pgfonlayer}"
+
+<properties>   ::= "[" <property> ("," <property>)* "]"
+
+<property>     ::= <value> "=" <value> | <value>
+
+<value>        ::= SIMPLE_STRING | DELIMITED_STRING
+
+<node>         ::= "\node" <properties>? <nodename>
+                      "at" <coords> DELIMITED_STRING ";"
+
+<nodename>     ::= "(" (SIMPLE_STRING) (".center")? ")"
+
+<coords>       ::= "(" NUMBER "," NUMBER ")"
+
+<edge>         ::= "\draw" <properties>? <nodename>
+                      "to" <edgenode>? (<nodename> | "()") ";"
+
+<edgenode>     ::= "node" <properties>? DELIMITED_STRING
+
+<boundingbox>  ::= "\path" "[use as bounding box]" <coords>
+                      "rectangle" <coords> ";"
+{% endhighlight %}
+
+<div class="callout callout-info">
+  <p><b>Note:</b> TikZiT 2.0 currently does not use the bounding box command, but it is allowed for compatibility with TikZiT 1 files.</p>
+</div>

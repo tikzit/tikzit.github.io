@@ -17,8 +17,8 @@ h1, h2, h3 {
   padding-bottom: 0.2em;
 }
 
-p {
-  font-size: 12pt;
+p, ol, ul {
+  font-size: 13pt;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -66,4 +66,20 @@ p {
 code {
   color: #444;
   background-color: #eef;
+}
+
+.callout {
+  margin: 2em 0em;
+  background-color: #eee;
+  border-left: 5px solid #ddd;
+  padding: 1em;
+}
+
+.callout-info {
+  border-left: 5px solid #9df;
+}
+
+.callout p {
+  color: #666;
+  margin: 0em;
 }
