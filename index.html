@@ -17,6 +17,29 @@ title: Home
   </p>
 </div>
 
+<h1>Contents</h1>
+
+<ul>
+  <li><a href="#install">Install</a></li>
+  <li><a href="#quickstart">Quickstart</a>
+    <ul>
+      <li><a href="#editing">Basic node and edge editing</a></li>
+      <li><a href="#styles">Adding styles</a></li>
+      <li><a href="#typesetting">Typesetting in LaTex</a></li>
+    </ul>
+  </li>
+  <li><a href="#tips">Tips and Tricks</a>
+    <ul>
+      <li><a href="#source">Editing TikZ source (e.g. node and edge properties)</a></li>
+      <li><a href="#boxes">Making boxes with multiple input/output wires</a></li>
+    </ul>
+  </li>
+  <li><a href="#formats">File Formats</a></li>
+</ul>
+
+
+<a name="install" class="anchor"></a>
+
 <h1>Install</h1>
 
 <p><b>Windows:</b> Click 'Windows (exe)' above to download a zip file and extract it to a convenient place (e.g. <code>C:\tikzit</code>). If you wish to associate <code>.tikz</code> files with TikZiT, run the included <code>.reg</code> file (optional). Note you may need to edit the <code>.reg</code> file with a text editor if you place TikZiT in a different location.</p>
@@ -26,11 +49,15 @@ title: Home
 <p><b>macOS:</b> Click 'macOS (app)' above to download a zip file. Extract this file and copy <code>tikzit.app</code> to your Applications folder. Depending on your system settings, the first time you run TikZiT, you may need to right-click the <code>.app</code> file and select <code>Open</code> from the menu to get the option to run it. After this, you can run TikZiT like a normal application.</p>
 
 
+<a name="quickstart" class="anchor"></a>
+
 <h1>Quickstart</h1>
 
-<p>While TikZiT is easy to use, a few things might not be obvious the first time you run the program. This guide should get you going as quickly as possible.</p>
+<p>While TikZiT is easy to use, a few things might not be obvious the first time you run the program. This guide should get you going as quickly as possible. <b>For mac users:</b> throughout this tutorial, substitute <kbd>ctrl</kbd> = <kbd>command</kbd> and <kbd>alt</kbd> = <kbd>option</kbd>, as usual.</p>
 
 <p>This tutorial will cover basic editing all the way up to building a LaTeX paper with TikZiT figures in it. Create a new, empty folder somewhere on your computer (which I will refer to as <code>tikzpaper</code> throughout this tutorial). Download <a href="tikzit.sty">tikzit.sty</a> and place it in the folder. Also, create a new sub-directory called <code>figures</code>, which we will use later.</p>
+
+<a name="editing" class="anchor"></a>
 
 <h2>Basic node and edge editing</h2>
 
@@ -38,15 +65,15 @@ title: Home
 
 <img class="screenshot" src="images/screenshots/fresh.png" />
 
-<p>The window is divided into two parts: the main part is the <b>graph editor</b> and the part along the side is the <b>style palette</b>. For editing graphs, there are 3 tools: the <b>select</b> tool, the add <b>node</b> tool, and the add <b>edge</b> tool. These can be selected quickly by pressing <code>s</code>, <code>n</code>, or <code>e</code> while the graph editor is in focus.</p>
+<p>The window is divided into two parts: the main part is the <b>graph editor</b> and the part along the side is the <b>style palette</b>. For editing graphs, there are 3 tools: the <b>select</b> tool, the add <b>node</b> tool, and the add <b>edge</b> tool. These can be selected quickly by pressing <kbd>s</kbd>, <kbd>n</kbd>, or <kbd>e</kbd> while the graph editor is in focus.</p>
 
 <p>Pick the <b>node</b> tool and click on the graph a few times to add some nodes. You will notice these appear in TikZiT as dashed circles with a small dot in the middle. These are called <b>invisible nodes</b>. These will not appear in the actual typeset output. However, they can be labelled with pieces of LaTeX code (see below), which will appear in your figure, or used to attach edges. To add edges, select the <b>edge</b> tool and click and drag from one node to another.</p>
 
 <img class="screenshot" src="images/screenshots/add-edge.png" />
 
-<p>Pick the <b>select</b> tool again. You can select individual nodes or edges by clicking on them. You can select multiple nodes by dragging a box around the, and you can select multiple nodes or edges by clicking while holding down the <code>ctrl</code> key. (<b>For macOS users:</b> note the <code>ctrl</code> key in these instructions should always be substituted for the <code>command</code> key, as usual.)</p>
+<p>Pick the <b>select</b> tool again. You can select individual nodes or edges by clicking on them. You can select multiple nodes by dragging a box around the, and you can select multiple nodes or edges by clicking while holding down the <kbd>ctrl</kbd> key.</p>
 
-<p>Selected nodes can be moved by dragging the mouse, or by pressing <code>ctrl + arrow keys</code>. Nodes are locked on a grid, so they normally only move in increments of 0.25 in TikZ coordinates. However, they can be "nudged" by increments of 0.025 by pressing <code>ctrl + shift + arrow keys</code>. This is convenient e.g. for centering nodes between others (5 nudges = 1/2 normal grid cell).</p>
+<p>Selected nodes can be moved by dragging the mouse, or by pressing <kbd>ctrl</kbd> + arrow keys. Nodes are locked on a grid, so they normally only move in increments of 0.25 in TikZ coordinates. However, they can be "nudged" by increments of 0.025 by pressing <kbd>ctrl</kbd> + <kbd>shift</kbd> + arrow keys. This is convenient e.g. for centering nodes between others (5 nudges = 1/2 normal grid cell).</p>
 
 <p>Double-clicking a node gives the ability to set a label, which can contain LaTeX code:</p>
 
@@ -61,7 +88,9 @@ title: Home
 <img class="screenshot" src="images/screenshots/bezier-bend.png" />
 
 
-<h2>Styles</h2>
+<a name="styles" class="anchor"></a>
+
+<h2>Adding styles</h2>
 
 <p>Before we can create non-invisible nodes, we will need some styles. To set up styles, we will first create a new <b>style file</b>. In the style palette, click the <img class="toolicon" src="images/document-new.png" /> button, go to the <code>tikzpaper</code> folder, and give the new style file a name, e.g. <code>sample.tikzstyles</code>. Now, we can edit the style file by clicking <img class="toolicon" src="images/text-x-generic_with_pencil.png" />. This will open the style editor:</p>
 
@@ -83,9 +112,16 @@ title: Home
 
 <img class="screenshot" src="images/screenshots/fig.png" />
 
-<p>The above figure was created with 5 invisible nodes (2 inputs, 2 outputs, and 1 for the equals sign), 2 "red dot" nodes, and 2 "green dot" nodes. We can now save it and include it directly in a paper. Click <code>File > Save As...</code>, navigate to <code>tikzpaper/figures</code>, and save this as <code>fig1.tikz</code>.</p>
+<p>The above figure was created with 5 invisible nodes (2 inputs, 2 outputs, and 1 for the equals sign), 2 "red dot" nodes, and 2 "green dot" nodes.</p>
 
-<p>In your favourite text editor, create a new file in the <code>tikzpaper</code> called <code>paper.tex</code>. Open it, and add the following tex:</p>
+
+<a name="typesetting" class="anchor"></a>
+
+<h2>Typesetting in LaTex</h2>
+
+<p>We can now save the figure we created and include it directly in a paper. At the beginning of the tutorial, we created a new folder called <code>tikzpaper</code> containing nothing but <a href="tikzit.sty">tikzit.sty</a> a sub-directory called <code>figures</code>. In TikZiT, click <code>File > Save As...</code>, navigate to <code>tikzpaper/figures</code>, and save or newly-created figure as <code>fig1.tikz</code>.</p>
+
+<p>In a tex(t) editor, create a new file in the <code>tikzpaper</code> folder called <code>paper.tex</code>, and add the following tex:</p>
 
 {% highlight latex %}
 \documentclass{article}
@@ -105,46 +141,53 @@ A centered tikz picture:
 \end{document}
 {% endhighlight %}
 
-<p><code>tikzfig.sty</code> provides two macros for including <code>.tikz</code> files: <code>\tikzfig</code> and <code>\ctikzfig</code>. They both take as an argument the name of a figure (without the <code>.tikz</code> extension), and will search for that figure either in the same directory or in a subdirectly called <code>figures</code> if it exists. Note that <code>\ctikzfig{FIG}</code> is just a shorthand for:</p>
+<p><code>tikzfig.sty</code> provides two macros for including <code>.tikz</code> files: <code>\tikzfig</code> and <code>\ctikzfig</code>. They both take as an argument the name of a figure (without the <code>.tikz</code> extension), and will search for that figure either in the same directory or in a subdirectly called <code>figures</code> if it exists. Use <code>\tikzfig{FIG}</code> to include <code>FIG.tikz</code> inline or as part of an equation. Use <code>\ctikzfig{FIG}</code> to include <code>FIG.tikz</code> centered on its own line.</p>
 
-{% highlight latex %}
-\begin{center}
-  \tikzfig{FIG}
-\end{center}
-{% endhighlight %}
+<div class="callout callout-info">
+<p><b>Note:</b> Inline TikZ figures align the origin (0,0) to the center of the text line by default, so it's a good idea to always center TikZ pictures on the origin (as indicated by the slightly darker grid lines). This can be tweaked by setting the <code>baseline</code> or <code>yshift</code> properties of the TikZ figure, e.g. <code>\begin{tikzpicture}[yshift=-1mm] ...</code>.</p>
+</div>
 
 <p>Use <code>pdflatex</code> to build <code>paper.tex</code>, and you should get something that looks like this:</p>
 
 <img class="screenshot" src="images/screenshots/pdf.png" />
 
 <div class="callout callout-info">
-  <p><b>Note:</b> TikZiT and LaTex don't always agree on how named colours should be drawn. This is a <a href="https://github.com/tikzit/tikzit/issues/19">known issue</a>, which will get fixed at some point.</p>
+  <p><b>Note:</b> TikZiT and LaTex don't always agree on how named colours (e.g. "green") should be drawn. This is a <a href="https://github.com/tikzit/tikzit/issues/19">known issue</a>, which will get fixed at some point.</p>
 </div>
 
 
+<a name="tips" class="anchor"></a>
 
 <h1>Tips and Tricks</h1>
 
-<p>There are quite a few tricks to getting things to look nice in TikZiT, usually using a combination of PGF/TikZ hackery and invisible nodes. Here are a few other quick tips:</p>
+<p>There are quite a few tricks to getting things to look nice in TikZiT, usually using a combination of PGF/TikZ hackery and invisible nodes. Here are a quick tips:</p>
 
 <ul>
   <li>To get dashed edges, add the atom "dashed" to an edge style. That is, select an edge style in the style editor, click "+a" under properties and change the text "new atom" to "dashed".</li>
   <li>For very large or unusual shapes, sometimes it is easier to just draw the shape with invisible nodes and bezier edges.</li>
+  <li>Hold down <kbd>shift</kbd> while moving the mouse wheel or two-finger scrolling to pan and hold down <kbd>ctrl</kbd> to zoom. If your mouse wheel only scrolls vertically, hold down <kbd>alt</kbd> + <kbd>shift</kbd> while moving the wheel to scroll horizontally.</li>
   <li>TikZiT style files can be edited in a text editor. The format is very simple: just a list of commands of the form <code>\tikzstyle{NAME}=[PROPERTIES]</code> (see below). This is convenient for bulk editing or merging sets of styles. After you edit a style file, click <img class="toolicon" src="images/refresh.png" /> in the style palette to refresh the styles.</li>
+  <li>You can mix math and TikZ figures on the same line, e.g. <code>\[ \tikzfig{fig-lhs} \ =\ \tikzfig{fig-rhs} \]</code>. This is useful if you have long strings of equalities or re-use figures many times.</li>
+  <li>To scale a whole TikZ figure up or down uniformly (including text), wrap the <code>\tikzfig</code> command in a <code>\scalebox</code>. To just scale coordinates, use the <code>scale</code>, <code>xscale</code>, or <code>yscale</code> TikZ properties.</li>
 </ul>
 
+<p>The following sections give some more detailed tips.</p>
 
-<h3>Editing TikZ source (e.g. node and edge properties)</h3>
+<a name="source" class="anchor"></a>
+
+<h2>Editing TikZ source (e.g. node and edge properties)</h2>
 
 
-<p>With a node/edge selected, press <code>ctrl + j</code> to jump to that line of the TikZ source.</p>
+<p>With a node/edge selected, press <kbd>ctrl</kbd> + <kbd>j</kbd> to jump to that line of the TikZ source.</p>
 
 <img class="screenshot" src="images/screenshots/tikz-source.png" />
 
-<p>You can edit this by hand, and press <code>ctrl + t</code> to update the graph editor with the new TikZ code. You need to be a bit careful, since TikZiT only understands a subset of TikZ, but adding and removing TikZ properties on nodes or edges works just fine. For this, the <a href="http://www.texample.net/media/pgf/builds/pgfmanualCVS2012-11-04.pdf">PGF/TikZ manual</a> is your friend.</p>
+<p>You can edit this by hand, and press <kbd>ctrl</kbd> + <kbd>t</kbd> to update the graph editor with the new TikZ code. You need to be a bit careful, since TikZiT only understands a subset of TikZ, but adding and removing TikZ properties on nodes or edges works just fine. For this, the <a href="http://www.texample.net/media/pgf/builds/pgfmanualCVS2012-11-04.pdf">PGF/TikZ manual</a> is your friend.</p>
 
 
-<h3>Making boxes with multiple input/output wires</h3>
+<a name="boxes" class="anchor"></a>
+
+<h2>Making boxes with multiple input/output wires</h2>
 
 <p>For string diagrams, flowcharts, etc. one often wants to create boxes with multiple input and output wires. While TikZ has a notion of "anchors" which support this, I find the following technique more convenient.</p>
 
@@ -169,11 +212,11 @@ A centered tikz picture:
 <p>While it might seem a bit awkward to create styles for every possible size, in practice this isn't too bad, for 2 reasons:</p>
 
 <ol>
-  <li>If you need a custom size as a one-off, you can use the <code>ctrl + j</code> trick from before to set the property on a single node.</li>
+  <li>If you need a custom size as a one-off, you can use the <kbd>ctrl</kbd> + <kbd>j</kbd> trick from before to set the property on a single node.</li>
   <li>Having only a few sizes to choose from (e.g. <code>small box</code>, <code>medium box</code>, <code>large box</code>) imposes some discipline on how you make your figures, and creates more consistent-looking papers overall. (This made a big difference <a href="http://cambridge.org/pqp">here</a>!)</li>
 </ol>
 
-<p>Also, suppose later on we come to our senses and decide to draw figures from bottom-to-top rather than left-to-right, we can swap the values of <code>minimum width</code> and <code>minimum height</code> in the style editor. Then, with our figure open, hit <code>ctrl + a</code> to select everything and <code>alt + shift + left</code> to rotate counter-clockwise. Then we get this:</p>
+<p>Suppose later on we come to our senses and decide to draw figures from bottom-to-top rather than left-to-right. To do this, first swap the minimum height/width values in the style editor. That is, set <code>minimum width</code> to <code>1cm</code> and <code>minimum height</code> to <code>0.75cm</code>. Then, with our figure open, hit <kbd>ctrl</kbd> + <kbd>a</kbd> to select everything and <kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>&#9666;</kbd> to rotate counter-clockwise. Then we get this:</p>
 
 <img class="screenshot" src="images/screenshots/boxfig-ccw.png" />
 
@@ -181,6 +224,12 @@ A centered tikz picture:
 
 <img class="screenshot" src="images/screenshots/typeset-boxes2.png" />
 
+<p>Then, suppose <i>even</i> later on our annoying co-author insists figures go from top-to-bottom rather than bottom-to-top. To fix this, hit <kbd>ctrl</kbd> + <kbd>a</kbd> to select everything again and <kbd>alt</kbd> + <kbd>&#9660;</kbd> to flip vertically. Then we get a new TikZ figure, which typesets as:</p>
+
+<img class="screenshot" src="images/screenshots/typeset-boxes3.png" />
+
+
+<a name="formats" class="anchor"></a>
 
 <h1>File Formats</h1>
 
