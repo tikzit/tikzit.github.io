@@ -79,6 +79,10 @@ code {
   border-left: 5px solid #9df;
 }
 
+.callout-warning {
+  border-left: 5px solid #fd0;
+}
+
 .callout p {
   color: #666;
   margin: 0em;
