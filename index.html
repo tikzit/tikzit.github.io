@@ -32,6 +32,7 @@ title: Home
     <ul>
       <li><a href="#source">Editing TikZ source (e.g. node and edge properties)</a></li>
       <li><a href="#boxes">Making boxes with multiple input/output wires</a></li>
+      <li><a href="#texopen">Using texopen.py to open TiKZ from PDFs</a></li>
     </ul>
   </li>
   <li><a href="#formats">File Formats</a></li>
@@ -232,6 +233,42 @@ A centered tikz picture:
 <p>Then, suppose <i>even</i> later on our annoying co-author insists figures go from top-to-bottom rather than bottom-to-top. To fix this, hit <kbd>ctrl</kbd> + <kbd>a</kbd> to select everything again and <kbd>alt</kbd> + <kbd>&#9660;</kbd> to flip vertically. Then we get a new TikZ figure, which typesets as:</p>
 
 <img class="screenshot" src="images/screenshots/typeset-boxes3.png" />
+
+
+<a name="texopen" class="anchor"></a>
+<h2>Using texopen.py to open TiKZ from PDFs</h2>
+
+<p>Many PDF readers have a <i>reverse lookup</i> feature, which enables you to jump to a line of Tex code when e.g. double-clicking a point in the generated PDF document. Normally, you want the line of TeX to be displayed in your main text editor or LaTeX editor, but if you click on a part of the PDF which came from a <code>\tikzfig</code>, it is convenient for this to open directly in TikZiT.</p>
+
+<p>This can be done via the following python script, <a href="texopen.py">texopen.py</a>:
+
+{% highlight python %}
+#!/usr/bin/python
+
+import sys
+import subprocess
+
+if len(sys.argv) >= 3:
+  file = sys.argv[1]
+  line = sys.argv[2]
+
+  print(file)
+  print(line)
+
+  if file.endswith('.tikz'):
+    subprocess.call(['tikzit', file])
+  else:
+    subprocess.call(['subl', file + ':' + line])
+{% endhighlight %}
+
+<p>Note this script uses <a href="https://www.sublimetext.com">Sublime Text</a> as the default editor (hence <code>subl</code> in the last line above). Obviously you can customise this to use your preferred editor.</p>
+
+<p>To use this script, place it somewhere that your PDF viewer can find, and set it up as your 'editor'. For example, in Okular, go to <code>Settings &gt; Configure Okular...</code>. Click on the Editor tab, select 'Custom Text Editor' and add the following as the command: <code>texopen.py %f %l</code>. Here, the <code>%f</code> is a placeholder for the active file, and <code>%l</code> the line of code.</p>
+
+<p>Configuration in other popular PDF editors (e.g. Preview, Skim, Sumatra) should be similar. On Windows systems, you will probably want to set the editor as something like <code>C:\path\to\python.exe C:\path\to\texopen.py %f %l</code>.</p>
+
+
+<p>For reverse lookups to work, make sure you are building with synctex enabled. This happens automatically if you are using a tool like <a href="https://mg.readthedocs.io/latexmk.html">Latexmk</a> or various GUI LaTeX editors or plugins. You will typically see a file with an extension like <code>*.synctex.gz</code> being generated when you build.</p>
 
 
 <a name="formats" class="anchor"></a>
