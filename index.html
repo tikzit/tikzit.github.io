@@ -5,13 +5,13 @@ title: Home
 
 <div class="jumbotron">
   <h1>TikZiT</h1>
-  <p>TikZiT is a super simple GUI editor for graphs and string diagrams. Its native file format is a subset of PGF/TikZ, which means TikZiT files can be included directly in papers typeset using <a href="https://www.latex-project.org/">LaTeX</a>. Pre-built versions are available for 64-bit systems running Windows, Linux, or macOS. Alternatively, you can build TikZiT from source (via GitHub).</p>
+  <p>TikZiT is a super simple GUI editor for graphs and string diagrams. Its native file format is a subset of PGF/TikZ, which means TikZiT files can be included directly in papers typeset using <a href="https://www.latex-project.org/">LaTeX</a>. Pre-built versions are available for systems running Windows, Linux, or macOS. <a href="#install">Packages</a> are available for some Linux distributions, or you can <a href="https://github.com/tikzit/tikzit">build from source</a>.</p>
   <p style="line-height: 2.5em">
-    <a href="https://github.com/tikzit/tikzit/releases/download/v2.0/tikzit-win.zip" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1/tikzit-win.zip" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> Windows (exe)</a>
-    <a href="https://github.com/tikzit/tikzit/releases/download/v2.0/tikzit-linux.tar.gz" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1/tikzit-linux.tar.gz" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> Linux (portable binary)</a>
-    <a href="https://github.com/tikzit/tikzit/releases/download/v2.0/tikzit-osx.dmg" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1/tikzit-osx.dmg" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> macOS (dmg)</a>
     <a href="https://github.com/tikzit/tikzit" class="btn btn-lg btn-success" role="button">GitHub Project &raquo;</a>
   </p>
@@ -26,6 +26,11 @@ title: Home
       <li><a href="#editing">Basic node and edge editing</a></li>
       <li><a href="#styles">Adding styles</a></li>
       <li><a href="#typesetting">Typesetting in LaTeX</a></li>
+      <li><a href="#preview">Previewing diagrams in TikZiT</a></li>
+      <ul>
+        <li><a href="#custom">Adding custom LaTeX code to previews</a></li>
+        <li><a href="#custom">Exporting images</a></li>
+      </ul>
     </ul>
   </li>
   <li><a href="#tips">Tips and Tricks</a>
@@ -46,21 +51,22 @@ title: Home
 
 <p><b>Windows:</b> Click 'Windows (exe)' above to download a zip file and extract it to a convenient place (e.g. <code>C:\tikzit</code>). If you wish to associate <code>.tikz</code> files with TikZiT, run the included <code>.reg</code> file (optional). Note you may need to edit the <code>.reg</code> file with a text editor if you place TikZiT in a different location.</p>
 
-<p><b>Linux:</b> Click 'Linux (portable binary)' above to download a tarball and extract it to a convient place (e.g. your home directory). Then, launch the application with <code>~/tikzit/bin/tikzit</code> (assuming you extracted into your home directory). You may wish to add <code>~/tikzit/bin</code> to your PATH and install the application launcher and file associations by running <code>./install-local.sh</code> from inside the TikZiT directory.</p>
+<p><b>Linux:</b> If you do not wish to <a href="https://github.com/tikzit/tikzit">build from source</a>, click 'Linux (portable binary)' above to download a tarball and extract it to a convient place (e.g. your home directory). Then, launch the application with <code>~/tikzit/bin/tikzit</code> (assuming you extracted into your home directory). You may wish to add <code>~/tikzit/bin</code> to your PATH and install the application launcher and file associations by running <code>./install-local.sh</code> from inside the TikZiT directory.</p>
 
 <p>There are also packages available for 2 Linux distributions, to install run:</p>
 
 <ul>
-  <li><a href="https://www.debian.org/releases/sid">Debian unstable</a>: <code>apt install tikzit</code></li>
+  <li>Debian <a href="https://www.debian.org/releases/buster">testing</a> and <a href="https://www.debian.org/releases/sid">unstable</a>: <code>apt install tikzit</code></li>
   <li><a href="https://nixos.org">NixOS</a>: <code>nix-env -i tikzit</code></li>
 </ul>
 
 <p>If you are a package maintainer for another distro, get in touch and I will add instructions here.</p>
 
+
 <p><b>macOS:</b> Click 'macOS (dmg)' above to download a dmg file. Open this file and copy <code>tikzit.app</code> to your Applications folder. Depending on your system settings, the first time you run TikZiT, you may need to right-click the <code>.app</code> file and select <code>Open</code> from the menu to get the option to run it. After this, you can run TikZiT like a normal application.</p>
 
 <div class="callout callout-warning">
-  <p><b>Note:</b> The version of TikZiT above requires at least macOS version 10.11 (Yosemite). If you are running an older version of macOS (10.8-10.10), use <a href="https://github.com/tikzit/tikzit/releases/download/v2.0/tikzit-osx-mountain.dmg">this version</a> instead.</p>
+  <p><b>Note:</b> The version of TikZiT above requires at least macOS version 10.11 (Yosemite). If you are running an older version of macOS (10.8-10.10), use <a href="https://github.com/tikzit/tikzit/releases/download/v2.0/tikzit-osx-mountain.dmg">this version</a> instead. However, to get the latest version of TikZiT, it is recommended to update your operating system.</p>
 </div>
 
 
@@ -139,6 +145,9 @@ title: Home
 <p>In a tex(t) editor, create a new file in the <code>tikzpaper</code> folder called <code>paper.tex</code>, and add the following tex:</p>
 
 {% highlight latex %}
+
+% paper.tex
+
 \documentclass{article}
 \usepackage{tikzit}
 \input{sample.tikzstyles}
@@ -166,9 +175,72 @@ A centered tikz picture:
 
 <img class="screenshot" src="images/screenshots/pdf.png" />
 
+
+<a name="preview" class="anchor"></a>
+
+<h2>Previewing diagrams in TikZiT</h2>
+
+<p>Starting with TikZiT 2.1, it is possible to preview your figures directly in TikZiT by pressing <kbd>ctrl</kbd> + <kbd>r</kbd>.</p>
+
+<img class="screenshot" src="images/screenshots/preview.png" />
+
+<p>If you get a green checkmark, the preview was generated successfully. Otherwise, you can click on the <code>Output</code> tab in the Preview window to see what went wrong.</p>
+
 <div class="callout callout-info">
-  <p><b>Note:</b> TikZiT and LaTex don't always agree on how named colours (e.g. "green") should be drawn. This is a <a href="https://github.com/tikzit/tikzit/issues/19">known issue</a>, which will be fixed in the 2.1 release.</p>
+<p><b>Note:</b> TikZiT will try to find <code>pdflatex</code> automatically by first searching your system path then common installation locations for TeX. If it fails, you can set the location of <code>pdflatex</code> manually in <code>Tools > Preferences</code> (Windows/Linux) or <code>tikzit > Preferences</code> (macOS).</p>
 </div>
+
+<a name="custom" class="anchor"></a>
+
+<h3>Adding custom LaTeX code to previews</h3>
+
+<p>TikZiT automatically includes <a href="tikzit.sty">tikzit.sty</a> and the active <code>*.tikzstyles</code> file when it generates its preview. So, in the example above, <code>sample.tikzstyles</code> is included automatically. TikZiT will also search the same directory for a <code>*.tikzdefs</code> file with the same name as the active TikZ style file and include it, if it exists. This file can be used to include extra packages, define macros, set up custom PGF/TikZ shapes, etc.</p>
+
+<p>For example, if the active TikZ style file is called <code>sample.tikzstyles</code>, create a new file called <code>sample.tikzdefs</code> in the same directory as <code>sample.tikzstyles</code> with the following LaTeX source:</p>
+
+{% highlight latex %}
+
+% sample.tikzdefs
+
+\usepackage{bm}
+\newcommand{\param}[1]{\ensuremath{\vec{\bm{#1}}}}
+
+{% endhighlight %}
+
+<p>This file loads the LaTeX package <code>bm</code> and defines a new macro <code>\param</code>, which can be used TikZ pictures. Back in TikZiT, double-click a node and set the label to, e.g. <code>\param{\alpha}</code>, and hit <kbd>ctrl</kbd> + <kbd>r</kbd> again. TikZiT will automaticall find <code>sample.tikzdefs</code> and include it when it makes the preview:</p>
+
+<img class="screenshot" src="images/screenshots/preview-macro.png" />
+
+<p>To make this macro available in your paper, as well as the preview, add <code>\input{sample.tikzdefs}</code> to the preamble:</p>
+
+{% highlight latex %}
+
+% paper.tex
+
+\documentclass{article}
+\usepackage{tikzit}
+\input{sample.tikzstyles}
+\input{sample.tikzdefs}
+
+\begin{document}
+
+% ...
+
+{% endhighlight %}
+
+<div class="callout callout-info">
+<p><b>Note:</b> The use of <code>*.tikzstyles</code> and <code>*.tikzdefs</code> files in the preview replaces the 'Custom Preambles' feature from TikZiT 1.</p>
+</div>
+
+<a name="export" class="anchor"></a>
+
+<h3>Exporting images</h3>
+
+<p>After you generate a preview, you can export the image to a file or the clipboard by right-clicking on the preview itself and selecting the appropriate option.</p>
+
+<img class="screenshot" src="images/screenshots/export.png" />
+
+<p>If you select <code>Export Image...</code>, the Export Image dialog will be shown, where you can choose where to save the file, as well as its size and format. For the format, you can choose to save either PNG, JPG, or the original PDF file generated by <code>pdflatex</code>. To obtain SVG output, it is recommended that you export to PDF, then use a vector graphics utility such as <a href="https://inkscape.org/">Inkscape</a> to convert to SVG.</p>
 
 
 <a name="tips" class="anchor"></a>
@@ -198,6 +270,8 @@ A centered tikz picture:
 <img class="screenshot" src="images/screenshots/tikz-source.png" />
 
 <p>You can edit this by hand, and press <kbd>ctrl</kbd> + <kbd>t</kbd> to update the graph editor with the new TikZ code. You need to be a bit careful, since TikZiT only understands a subset of TikZ, but adding and removing TikZ properties on nodes or edges works just fine. For this, the <a href="http://www.texample.net/media/pgf/builds/pgfmanualCVS2012-11-04.pdf">PGF/TikZ manual</a> is your friend.</p>
+
+<p>If you can't get the TikZ code to parse again, or you decide you didn't want to make a change after all, you can revert your changes to the TikZ code by pressing <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>t</kbd>.</p>
 
 
 <a name="boxes" class="anchor"></a>
@@ -336,5 +410,5 @@ if len(sys.argv) >= 3:
 {% endhighlight %}
 
 <div class="callout callout-info">
-  <p><b>Note:</b> TikZiT 2.0 currently does not use the bounding box command, but it is allowed for compatibility with TikZiT 1 files.</p>
+  <p><b>Note:</b> TikZiT 2.x currently does not use the bounding box command, but it is allowed for compatibility with TikZiT 1 files.</p>
 </div>
