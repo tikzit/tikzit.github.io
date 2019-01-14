@@ -7,11 +7,11 @@ title: Home
   <h1>TikZiT</h1>
   <p>TikZiT is a super simple GUI editor for graphs and string diagrams. Its native file format is a subset of PGF/TikZ, which means TikZiT files can be included directly in papers typeset using <a href="https://www.latex-project.org/">LaTeX</a>. Pre-built versions are available for systems running Windows, Linux, or macOS. <a href="#install">Packages</a> are available for some Linux distributions, or you can <a href="https://github.com/tikzit/tikzit">build from source</a>.</p>
   <p style="line-height: 2.5em">
-    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1.1/tikzit-win.zip" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1.2/tikzit-win.zip" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> Windows (exe)</a>
-    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1.1/tikzit-linux.tar.gz" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1.2/tikzit-linux.tar.gz" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> Linux (portable binary)</a>
-    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1.1/tikzit-osx.dmg" class="btn btn-primary btn-lg" role="button">
+    <a href="https://github.com/tikzit/tikzit/releases/download/v2.1.2/tikzit-osx.dmg" class="btn btn-primary btn-lg" role="button">
       <span class="glyphicon glyphicon-download-alt"></span> macOS (dmg)</a>
     <a href="https://github.com/tikzit/tikzit" class="btn btn-lg btn-success" role="button">GitHub Project &raquo;</a>
   </p>
@@ -35,6 +35,7 @@ title: Home
   </li>
   <li><a href="#tips">Tips and Tricks</a>
     <ul>
+      <li><a href="#bend">Keyboard shortcuts for edge bending</a></li>
       <li><a href="#source">Editing TikZ source (e.g. node and edge properties)</a></li>
       <li><a href="#boxes">Making boxes with multiple input/output wires</a></li>
       <li><a href="#texopen">Using texopen.py to open TiKZ from PDFs</a></li>
@@ -250,6 +251,7 @@ A centered tikz picture:
 <p>There are quite a few tricks to getting things to look nice in TikZiT, usually using a combination of PGF/TikZ hackery and invisible nodes. Here are a quick tips:</p>
 
 <ul>
+  <li>Right-clicking on blank space with the <code>Select</code> tool active will create a node. Right-clicking and dragging between nodes will create edges.</li>
   <li>To get dashed edges, add the atom "dashed" to an edge style. That is, select an edge style in the style editor, click "+a" under properties and change the text "new atom" to "dashed".</li>
   <li>For very large or unusual shapes, sometimes it is easier to just draw the shape with invisible nodes and bezier edges.</li>
   <li>Hold down <kbd>shift</kbd> while moving the mouse wheel or two-finger scrolling to pan and hold down <kbd>ctrl</kbd> to zoom. If your mouse wheel only scrolls vertically, hold down <kbd>alt</kbd> + <kbd>shift</kbd> while moving the wheel to scroll horizontally.</li>
@@ -259,6 +261,14 @@ A centered tikz picture:
 </ul>
 
 <p>The following sections give some more detailed tips.</p>
+
+
+<a name="bend" class="anchor"></a>
+
+<h2>Keyboard shortcuts for edge bending</h2>
+
+<p>If you select an edge and hold down the <kbd>ctrl</kbd> key, you will notice a <code>&lt;&gt;</code> symbol appear above one endpoint of the edge. If you use the left and right arrow keys, this adjust the in-angle of the edge. If you hold <kbd>ctrl</kbd> + <kbd>shift</kbd>, the other end of the edge will highlight and you can adjust the out-angle similarly. In either case, the up and down arrows adjust the looseness of the edge.</p>
+
 
 <a name="source" class="anchor"></a>
 
