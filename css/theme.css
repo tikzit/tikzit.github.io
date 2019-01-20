@@ -109,3 +109,5 @@ a.anchor {
   position: relative;
   top: -3em;
 }
+
+.badge-primary { background-color: #36a; }
