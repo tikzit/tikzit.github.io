@@ -38,6 +38,8 @@ title: Home
     <ul>
       <li><a href="#bend">Keyboard shortcuts for edge bending</a></li>
       <li><a href="#source">Editing TikZ source (e.g. node and edge properties)</a></li>
+      <li><a href="#label">Adding labels next to nodes</a></li>
+      <li><a href="#merge">Merging nodes</a></li>
       <li><a href="#boxes">Making boxes with multiple input/output wires</a></li>
       <li><a href="#texopen">Using texopen.py to open TiKZ from PDFs</a></li>
     </ul>
@@ -283,6 +285,36 @@ A centered tikz picture:
 <p>You can edit this by hand, and press <kbd>ctrl</kbd> + <kbd>t</kbd> to update the graph editor with the new TikZ code. You need to be a bit careful, since TikZiT only understands a subset of TikZ, but adding and removing TikZ properties on nodes or edges works just fine. For this, the <a href="http://www.texample.net/media/pgf/builds/pgfmanualCVS2012-11-04.pdf">PGF/TikZ manual</a> is your friend.</p>
 
 <p>If you can't get the TikZ code to parse again, or you decide you didn't want to make a change after all, you can revert your changes to the TikZ code by pressing <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>t</kbd>.</p>
+
+<a name="label" class="anchor"></a>
+
+<h2>Adding labels next to nodes</h2>
+
+<p>If you set the property <code>label</code> on a node, its value will be shown directly above a node. This is handy for drawing labels outside a node, rather than inside:</p>
+
+<img class="screenshot" src="images/screenshots/outer-label.png" />
+
+<p>The label property is typically given in the form <code>label={POSITION:TEXT}</code>. The label property in the example above is set to <code>label={above:1}</code>. This places the text <code>1</code> directly above the node. Possiblities for <code>POSITION</code> include <code>above</code>, <code>below</code>, <code>left</code>, <code>right</code>, and <code>auto</code> (see the PGF manual for details). Note the <code>POSITION</code> only affects where the label will be typeset. For simplicity, TikZiT always shows the label above the node.</p>
+
+
+<a name="merge" class="anchor"></a>
+
+<h2>Merging nodes</h2>
+
+<p>Press <kbd>ctrl</kbd> + <kbd>m</kbd> to merge selected nodes with any nodes that are at the same location. A particularly handy use-case is in making symmetric figures. For example, suppose we want to make a box with two, symmetric input wires. Make the first input wire, then select the box and the first input:</p>
+
+<img class="screenshot" src="images/screenshots/merge1.png" />
+
+<p>Then, make a copy of this part of the diagram using the clipboard, and vertically with <kbd>alt</kbd> + <kbd>&#9660;</kbd>:</p>
+
+<img class="screenshot" src="images/screenshots/merge3.png" />
+
+<p>Drag the duplicated part into place, and press <kbd>ctrl</kbd> + <kbd>m</kbd>:</p>
+
+<img class="screenshot" src="images/screenshots/merge4.png" />
+
+<p>...and we have one node with 2 inputs. Note that you might not visually see any change when you merge, but jumping to the TikZ source, we see there is indeed only one node in the middle.</p>
+
 
 
 <a name="boxes" class="anchor"></a>
