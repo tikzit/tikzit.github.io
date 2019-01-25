@@ -290,11 +290,11 @@ A centered tikz picture:
 
 <h2>Adding labels next to nodes</h2>
 
-<p>If you set the property <code>label</code> on a node, its value will be shown directly above a node. This is handy for drawing labels outside a node, rather than inside:</p>
+<p>Normally labels added by double-clicking a node will appear inside the node. However, you can add a label next to a node by selecting the node, pressing <kbd>ctrl</kbd> + <kbd>j</kbd> and adding a <code>label</code> property to the node in the TikZ source. Once you set a label this way, it will be shown above the node in TikZiT:</p>
 
 <img class="screenshot" src="images/screenshots/outer-label.png" />
 
-<p>The label property is typically given in the form <code>label={POSITION:TEXT}</code>. The label property in the example above is set to <code>label={above:1}</code>. This places the text <code>1</code> directly above the node. Possiblities for <code>POSITION</code> include <code>above</code>, <code>below</code>, <code>left</code>, <code>right</code>, and <code>auto</code> (see the PGF manual for details). Note the <code>POSITION</code> only affects where the label will be typeset. For simplicity, TikZiT always shows the label above the node.</p>
+<p>The label property is typically given in the form <code>label={POSITION:TEXT}</code>, where <code>TEXT</code> can be any LaTeX code, just like with normal labels. The label property in the example above is set to <code>label={above:1}</code>. This places the text <code>1</code> directly above the node. Possiblities for <code>POSITION</code> include <code>above</code>, <code>below</code>, <code>left</code>, <code>right</code>, and <code>auto</code> (see the PGF manual for details). Note the <code>POSITION</code> only affects where the label will be typeset. For simplicity, TikZiT always shows the label above the node.</p>
 
 
 <a name="merge" class="anchor"></a>
