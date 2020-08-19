@@ -26,6 +26,7 @@ title: Home
     <ul>
       <li><a href="#editing">Basic node and edge editing</a></li>
       <li><a href="#styles">Adding styles</a></li>
+      <li><a href="#paths">Paths and filled shapes</a></li>
       <li><a href="#typesetting">Typesetting in LaTeX</a></li>
       <li><a href="#preview">Previewing diagrams in TikZiT</a></li>
       <ul>
@@ -269,6 +270,34 @@ A centered tikz picture:
 </ul>
 
 <p>The following sections give some more detailed tips.</p>
+
+
+<a name="paths" class="anchor"></a>
+
+<h2>Paths and filled shapes</h2>
+
+<p>Sometimes it is useful to treat a sequence of adjacent edges as one continuous path. For example, dashes and dots may look strange if they are applied to adjacent edges that are not part of a single path. Suppose we create an edge style called <code>big dashes</code> in the style editor with the following properties:</p>
+
+<img class="screenshot" src="images/screenshots/big-dashes-style.png" />
+
+<p>Then, we can make a complex shape using blank nodes and edges. Unfortunately the output doesn't look so good:</p>
+
+<img class="screenshot" src="images/screenshots/path-bad.png" />
+
+<p>Yuck! The super-long dashes happen because TikZ doesn't know these edges are all part of one path. To fix this, select all of the edges by holding the <code>CTRL</code> key and clicking each of them, then go to <code>Edit > Path > Make Path</code> or hit <code>CTRL+P</code>. Now, you should notice two things. First, if you click on any of the edges, the whole path becomes selected. Second, the output looks a lot better:</p>
+
+<img class="screenshot" src="images/screenshots/path-good.png" />
+
+<p>Perhaps more importantly, you can use edge styles to create <b>filled paths</b>. To do this, go to an edge style in the style editor, uncheck <code>none</code> next to fill colour, and set the colour just like you would for a node:</p>
+
+<img class="screenshot" src="images/screenshots/edge-fill.png" />
+
+<p>The fill colour is shown in the bottom half of the edge style's icon in the style palette. If we save the style and preview again, this is the result:</p>
+
+<img class="screenshot" src="images/screenshots/path-fill.png" />
+
+<p>If you want to split a path back into individual edges, go to <code>Edit > Path > Split Path</code> or hit <code>CTRL+SHIFT+P</code>. Note that if a fill colour is set, it may still appear under curved edges in the output, even though it doesn't show up in TikZiT.</p>
+
 
 
 <a name="bend" class="anchor"></a>
