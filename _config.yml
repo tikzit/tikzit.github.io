@@ -1,4 +1,4 @@
 name: TikZiT
 markdown: kramdown
 highlighter: rouge
-tikzit_version: 2.1.5
+tikzit_version: 2.1.6
