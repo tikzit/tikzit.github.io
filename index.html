@@ -52,22 +52,23 @@ title: Home
 
 <h1>Install</h1>
 
-
-<p><b>Windows:</b> Click 'Windows (exe)' above to download a zip file and extract it to a convenient place (e.g. <code>C:\tikzit</code>). If you wish to associate <code>.tikz</code> files with TikZiT, run the included <code>.reg</code> file (optional). Note you may need to edit the <code>.reg</code> file with a text editor if you place TikZiT in a different location.</p>
+<p><b>Windows:</b> Click 'Windows (exe)' above to download a zip file and extract it to a convenient place (e.g. <code>C:\tikzit</code>). If you wish to associate <code>.tikz</code> files with TikZiT, run the included <code>.reg</code> file (optional). Note you may need to edit the <code>.reg</code> file with a text editor if you place TikZiT in a different location. You can also install with <a href="https://chocolatey.org/">Chocolatey</a> via <code>choco install tikzit</code>.</p>
 
 <p><b>Linux:</b> If you do not wish to <a href="https://github.com/tikzit/tikzit">build from source</a>, click 'Linux (portable binary)' above to download a tarball and extract it to a convient place (e.g. your home directory). Then, launch the application with <code>~/tikzit/bin/tikzit</code> (assuming you extracted into your home directory). You may wish to add <code>~/tikzit/bin</code> to your PATH and install the application launcher and file associations by running <code>./install-local.sh</code> from inside the TikZiT directory.</p>
 
-<p>There are also packages available for 2 Linux distributions, to install run:</p>
+<p>There are also packages available for several Linux distributions, maintained by volunteers in the open source community. Here are the ones I know about:</p>
 
 <ul>
-  <li>Debian <a href="https://www.debian.org/releases/buster">testing</a> and <a href="https://www.debian.org/releases/sid">unstable</a>: <code>apt install tikzit</code></li>
+  <li><a href="https://ubuntu.com/">Ubuntu</a> 19.10+, Debian <a href="https://www.debian.org/releases/buster">testing</a>/<a href="https://www.debian.org/releases/sid">unstable</a>: <code>apt install tikzit</code></li>
+  <li><a href="https://aur.archlinux.org/">arch linux</a>: <code>pacman -S tikzit</code></li>
   <li><a href="https://nixos.org">NixOS</a>: <code>nix-env -i tikzit</code></li>
+  <li><a href="https://getfedora.org/">Fedora</a> 32: <code>yum install tikzit</code></li>
 </ul>
 
 <p>If you are a package maintainer for another distro, get in touch and I will add instructions here.</p>
 
 
-<p><b>macOS:</b> Click 'macOS (dmg)' above to download a dmg file. Open this file and copy <code>tikzit.app</code> to your Applications folder. Depending on your system settings, the first time you run TikZiT, you may need to right-click the <code>.app</code> file and select <code>Open</code> from the menu to get the option to run it. After this, you can run TikZiT like a normal application.</p>
+<p><b>macOS:</b> Click 'macOS (dmg)' above to download a dmg file. Open this file and copy <code>tikzit.app</code> to your Applications folder. Depending on your system settings, the first time you run TikZiT, you may need to right-click the <code>.app</code> file and select <code>Open</code> from the menu to get the option to run it. After this, you can run TikZiT like a normal application. You can also install with <a href="https://brew.sh/">HomeBrew</a> by running <code>brew install tikzit</code> in a terminal.</p>
 
 <div class="callout callout-warning">
   <p><b>Note:</b> The version of TikZiT above requires at least macOS version 10.11 (Yosemite). If you are running an older version of macOS (10.8-10.10), use <a href="https://github.com/tikzit/tikzit/releases/download/v2.0/tikzit-osx-mountain.dmg">this version</a> instead. However, to get the latest version of TikZiT, it is recommended to update your operating system.</p>
