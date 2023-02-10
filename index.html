@@ -179,7 +179,7 @@ A centered tikz picture:
 \end{document}
 {% endhighlight %}
 
-<p><code>tikzfig.sty</code> provides two macros for including <code>.tikz</code> files: <code>\tikzfig</code> and <code>\ctikzfig</code>. They both take as an argument the name of a figure (without the <code>.tikz</code> extension), and will search for that figure either in the same directory or in a subdirectly called <code>figures</code> if it exists. Use <code>\tikzfig{FIG}</code> to include <code>FIG.tikz</code> inline or as part of an equation. Use <code>\ctikzfig{FIG}</code> to include <code>FIG.tikz</code> centered on its own line.</p>
+<p><code>tikzfig.sty</code> provides two macros for including <code>.tikz</code> files: <code>\tikzfig</code> and <code>\ctikzfig</code>. They both take as an argument the name of a figure (without the <code>.tikz</code> extension), and will search for that figure either in the same directory or in a subdirectly called <code>figures</code> if it exists. Use <code>\tikzfig{FIG}</code> to include <code>FIG.tikz</code> inline or as part of an equation. Use <code>\ctikzfig{FIG}</code> to include <code>FIG.tikz</code> centered on its own line. Using the <code>\input</code> command to directly include <code>FIG.tikz</code> is not recommended, as the node spacing will not match the preview in TikZiT.</p>
 
 <div class="callout callout-info">
 <p><b>Note:</b> Inline TikZ figures align the origin (0,0) to the center of the text line by default, so it's a good idea to always center TikZ pictures on the origin (as indicated by the slightly darker grid lines). This can be tweaked by setting the <code>baseline</code> or <code>yshift</code> properties of the TikZ figure, e.g. <code>\begin{tikzpicture}[yshift=-1mm] ...</code>.</p>
